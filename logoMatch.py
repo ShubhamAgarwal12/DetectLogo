@@ -20,20 +20,19 @@ for u in uarray:
         descs2 =[]
         brand =[]
         MAX_LIMIT =1
-        files=os.listdir('logos/')
+        files=os.listdir('logo_data/logos/')
         # store the descriptors for all the logos
         for f in files:
-                logoI = cv2.imread('logos/'+f)
+                logoI = cv2.imread('logo_data/logos/'+f)
                 logo = cv2.cvtColor(logoI, cv2.COLOR_BGR2GRAY)
                 (kps, descs) = detector.detectAndCompute(logo, None)
                 kps2.append(kps)
                 descs2.append(descs)
-                brand.append(f.split('.')[0])
+                brand.append(f.split('.')[0])        
                 
-        files=os.listdir('test_Shubham/')
-        
+        files=os.listdir('augmentedData/')        
         for f in files:             # add synthetic images to the logos
-                logoI = cv2.imread('test_Shubham/'+f)
+                logoI = cv2.imread('augmentedData/'+f)
                 logo = cv2.cvtColor(logoI, cv2.COLOR_BGR2GRAY)
                 (kps, descs) = detector.detectAndCompute(logo, None)
                 kps2.append(kps)
@@ -41,7 +40,7 @@ for u in uarray:
                 brand.append(f.split('_')[1].split('.')[0])
         
         # read probes.txt file
-        with open('probes.txt') as f:
+        with open('logo_data/probes.txt') as f:
             lines = f.readlines()
         detector = cv2.xfeatures2d.SIFT_create() 
         # process the probes.txt file line by line
@@ -52,7 +51,7 @@ for u in uarray:
             logoMatch=[]
             filename = line.split("\t")[0]
             brandname = line.split("\t")[1].strip()
-            probeI = cv2.imread('probes/'+filename);
+            probeI = cv2.imread('logo_data/probes/'+filename);
             probe = cv2.cvtColor(probeI, cv2.COLOR_BGR2GRAY)
             detector = cv2.xfeatures2d.SIFT_create()
             (kps1, descs1) = detector.detectAndCompute(probe, None)
@@ -82,11 +81,7 @@ for u in uarray:
                         break
                     src_pts = np.float32([ kp[m.queryIdx].pt for m in good ]).reshape(-1,1,2)
                     dst_pts = np.float32([ kps1[m.trainIdx].pt for m in good ]).reshape(-1,1,2)
-                    
-                   # good = good[0:1]
-                   # src_pts = np.float32([ kp[m.queryIdx].pt for m in good ]).reshape(-1,1,2)
-                   # dst_pts = np.float32([ kps1[m.trainIdx].pt for m in good ]).reshape(-1,1,2)
-                    
+                                       
                     #get homography to draw the bounding box
                     M, mask = cv2.findHomography(src_pts, dst_pts, cv2.RANSAC,8.0)
                     if mask is not None:            
@@ -97,7 +92,7 @@ for u in uarray:
                         dst = cv2.perspectiveTransform(pts,M)
         
                         probe = cv2.polylines(probe,[np.int32(dst)],True,(0,0,255),3, cv2.LINE_AA)
-                        cv2.imwrite('matchResults/'+filename+'_'+brand[i]+'1.png', probe)
+                        cv2.imwrite('matchResults/'+filename+'_'+brand[i]+'_out.png', probe)
                     else:
                         matchesMask = None
                 i=i+1
