@@ -1,9 +1,8 @@
-# Project Title
-Identifying and Locating Logo
+# Identifying and Locating Logo
 
 ## Getting Started
 
-This project will make you familiar to logo identification and matching using SIFT feature detector and descriptor using opencv binding in python. The page contains details about the approach and instructions get the project up and running on your local machine.
+This project will make you familiar to logo identification and matching using SIFT feature detector and descriptor. The page contains details about the approach and instructions to get the project up and running on your local machine with python.
 
 ### Prerequisites
 
