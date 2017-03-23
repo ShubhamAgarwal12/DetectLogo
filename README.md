@@ -3,7 +3,7 @@ Identifying and Locating Logo
 
 ## Getting Started
 
-This project will make you familiar to logo identification and matching using the SIFT feature detector and descriptor published by David Lowe in 1999 using its opencv binding in python. The page contains approach and instructions get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+This project will make you familiar to logo identification and matching using SIFT feature detector and descriptor using opencv binding in python. The page contains details about the approach and instructions get the project up and running on your local machine.
 
 ### Prerequisites
 
