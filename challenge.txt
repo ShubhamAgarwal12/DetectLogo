@@ -1,0 +1,13 @@
+
+Challenge:
+
+For each probe image in probe.txt, write a script that can:
+(1) identify the brand logo in the probe image (if any), 
+(2) draw the bounding box around the recognized logo (if any),
+And finally, the script should tally the number of correct vs incorrect matches and summarize the accuracy.
+
+
+Directory contents:
+probes.txt - file that contains the list of probe images
+probes/ - probe image files (note that the "none" label are images that do not contain one of the 32 provided logo brands) 
+logos/ - reference logo images (filename contains the name of the brand)
