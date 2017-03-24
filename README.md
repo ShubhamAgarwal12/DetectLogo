@@ -4,7 +4,25 @@
 
 This project will make you familiar to logo identification and matching using SIFT feature detector and descriptor. The page contains details about the approach and instructions to get the project up and running on your local machine with python.
 
-### Approach
+## Approach
+### Template Matching
+The first thing thats comes to mind is template matching but considering different scales of of the probe
+images and logos, this will not be efficient. Somehow if we are able to detect the logo, then also we
+will be facing difficulty in drawing the bounding box. We need to take into account the scaling for sure.
+One more problem is that we will need a threshold so that we do not detect template in probe image
+without any logo. We can set some threshold for current set of images but for scalability that's not a
+good idea.
+
+### SIFT
+Considering the shortcomings of the template matching, a keypoint based detector seems to be a much
+better approach. I tried using the SIFT detector and discriptor from OpenCV in python. SIFT feature
+discriptor is scale, rotation and translation invariant so we can get better results compared to the
+template matching case. To account for skewness I used the skewed synthetic images as explaned in
+next section. Once we get good enough matches, we can compute corresponding homography to get
+the bounding box in the probe image. This approach is scalable as once we add new logos, we can just
+add the corresponding keypoints and label and utilize the same code.
+
+### Some Results
 
 
 ## Getting the code running on your machine
