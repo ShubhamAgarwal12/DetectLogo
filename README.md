@@ -47,4 +47,4 @@ The code is developed on Python2.7 with libraries OpenCV, numpy, random and math
 4. Run the file 'augmentData.py'. This will create an augmented dataset of the logos provided in logo_data. You can selecte the number of    images by configuring the variable num_images in the code file.
 5. Now run 'logoMatch.py file. This will go throught he probe images and identify if they contain any logo. If logo is present, it will draw a bounding box at the locationit found the matching features. The resulting images will be stored in matchResults folder.
 
-With this approach, I was able to get 61.11% of accuracy on the probe data with 27 logos. Note that half of the probe images don not contain any of the logo.
+With this approach, I was able to get 61.11% of accuracy on the probe data with 27 logos. Note that half of the probe images do not contain any of the logo.
