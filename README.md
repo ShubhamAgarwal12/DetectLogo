@@ -17,9 +17,8 @@ good idea.
 Considering the shortcomings of the template matching, a keypoint based detector seems to be a much
 better approach. I tried using the SIFT detector and discriptor from OpenCV in python. SIFT feature
 discriptor is scale, rotation and translation invariant so we can get better results compared to the
-template matching case. To account for skewness I used the skewed synthetic images as explaned in
-next section. Once we get good enough matches, we can compute corresponding homography to get
-the bounding box in the probe image. This approach is scalable as once we add new logos, we can just
+template matching case. To account for skewness I used the skewed synthetic images as part of the augmented dataset. Once we get good enough matches, we can compute corresponding homography to get
+the bounding box in the probe image. More details on the code can be found at http://docs.opencv.org/2.4/doc/tutorials/features2d/feature_homography/feature_homography.html. This approach is scalable as once we add new logos, we can just
 add the corresponding keypoints and label and utilize the same code.
 
 ### Some Results
