@@ -23,7 +23,15 @@ the bounding box in the probe image. This approach is scalable as once we add ne
 add the corresponding keypoints and label and utilize the same code.
 
 ### Some Results
+![alt tag](https://github.com/ShubhamAgarwal12/findLogo/blob/master/FewResults/FoundStarbucks.PNG)
 
+![alt tag](https://github.com/ShubhamAgarwal12/findLogo/blob/master/FewResults/FoundIntel.PNG)
+
+### Not So Good Results
+
+![alt tag](https://github.com/ShubhamAgarwal12/findLogo/blob/master/FewResults/FoundFord.PNG)
+
+![alt tag](https://github.com/ShubhamAgarwal12/findLogo/blob/master/FewResults/FoundCoke.PNG)
 
 ## Getting the code running on your machine
 
